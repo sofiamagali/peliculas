@@ -1,11 +1,13 @@
+import styles from "./MoviesGrid.module.css";
+import movies from "./movies.json";
+import { PelisCard } from "./Pelicards";
+
 export function PeliculasListado() {
     return (
-    <ul>
-    <li>Peli1</li>
-    <li>Peli2</li>
-    <li>Peli3</li>
-    <li>Peli4</li>
-    <li>Peli5</li>
-</ul>
+    <ul className={styles.moviesGrid}>
+      {movies.map((movie) => (
+       <PelisCard key={movie.ip}  movie={movie}/>
+    ))}    
+    </ul>
     );
 }
