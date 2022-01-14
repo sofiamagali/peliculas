@@ -13,6 +13,12 @@
     background-color:aliceblue;
 }
 
+.title{
+    display: flex;
+    justify-content: center;
+    color: rgb(225, 225, 225);
+}
+
 @media (max-width: 560px){
     .movieImage{
         width: 90%;

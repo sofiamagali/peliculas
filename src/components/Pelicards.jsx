@@ -13,7 +13,7 @@ export function Pelicards({ movie }) {
           src={imageUrl}
           alt={movie.title}
         />
-        <div>{movie.title}</div>
+        <div className={styles.title} >{movie.title}</div>
       </Link>
     </li>
   );
