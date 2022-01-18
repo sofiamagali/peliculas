@@ -1,20 +1,28 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import movie from "./movie.json";
+import { Spinner } from "../components/Spinner";
 import styles from "./MovieDetails.module.css";
 import { get } from "./utils/httpCLient";
 
 export function MovieDetails(){
 
     const { movieId } = useParams();
+    const [isLoading , setIsLoading] = useState(true);
     const [movie,setMovie] = useState(null);
 
     useEffect(() => {
+      setIsLoading(true);
       get("/movie/" + movieId).then(data => {
+        
         setMovie(data);
+        setIsLoading(false);
       })
     },[movieId])
+
+    if(isLoading){
+      return <Spinner/>;
+    }
 
     const imageUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
     return (
